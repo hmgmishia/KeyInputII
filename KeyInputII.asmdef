@@ -1,0 +1,15 @@
+{
+    "name": "KeyInputII",
+    "references": [
+        "GUID:7b9a9d1d5178d43e6ad7e8d402a82fd0"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
