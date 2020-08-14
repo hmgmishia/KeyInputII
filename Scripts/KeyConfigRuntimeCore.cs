@@ -10,6 +10,9 @@ namespace KeyInputII
     /// </summary>
     public class KeyConfigRuntimeCore
     {
+        /// <summary>
+        /// キー名と対応キーコードのペア辞書
+        /// </summary>
         private Dictionary<string, List<KeyCode>> keyConfigDictionary = new Dictionary<string, List<KeyCode>>();
         
         private static KeyConfigRuntimeCore instance;

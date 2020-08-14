@@ -7,6 +7,9 @@ using UnityEditor;
 
 namespace KeyInputII
 {
+    /// <summary>
+    /// キーコンフィグの定義アセット
+    /// </summary>
     public class KeyConfigDefineData : ScriptableObject
     {
         public const string DefaultLoadPath = "DefaultKeyConfig";
@@ -18,7 +21,7 @@ namespace KeyInputII
         private static void Create()
         {
             var instance = CreateInstance<KeyConfigDefineData>();
-            AssetDatabase.CreateAsset(instance, $"Assets/Plugins/ButtonInputII/Resources/{DefaultLoadPath}.asset");
+            AssetDatabase.CreateAsset(instance, $"Assets/Plugins/KeyInputII/Resources/{DefaultLoadPath}.asset");
             AssetDatabase.SaveAssets();
         }
 #endif
