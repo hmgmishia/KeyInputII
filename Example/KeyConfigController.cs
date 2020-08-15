@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 namespace KeyInputII.Example
@@ -18,6 +19,9 @@ namespace KeyInputII.Example
 
         [SerializeField]
         private GameObject panel;
+
+        [SerializeField]
+        private string checkSceneName;
         
         private KeyConfigItemController item;
 
@@ -62,6 +66,11 @@ namespace KeyInputII.Example
                     break;
                 }
             }
+        }
+
+        public void OnChangeCheckScene()
+        {
+            SceneManager.LoadScene(checkSceneName);
         }
     }
 }

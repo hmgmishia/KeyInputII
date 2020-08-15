@@ -140,7 +140,8 @@ namespace KeyInputII
                 return false;
             }
             var isDown = false;
-            foreach (var code in keyConfigDictionary[name])
+            var codeList = keyConfigDictionary[name];
+            foreach (var code in codeList)
             {
                 var down = Input.GetKeyDown(code);
                 //falseWhenAnyKeyPressed=trueのときpressedだけどdown=falseのときはreturn false
@@ -166,7 +167,8 @@ namespace KeyInputII
                 return false;
             }
             bool isPressed = trueWhenAllPressed;
-            foreach (var code in keyConfigDictionary[name])
+            var codeList = keyConfigDictionary[name];
+            foreach (var code in codeList)
             {
                 var down = Input.GetKey(code);
                 //truewhenallpressedはandで
@@ -191,8 +193,9 @@ namespace KeyInputII
             {
                 return false;
             }
-            var isUp = false;
-            foreach (var code in keyConfigDictionary[name])
+            var isUp = false;          
+            var codeList = keyConfigDictionary[name];
+            foreach (var code in codeList)
             {
                 var up = Input.GetKeyUp(code);
                 isUp |= up;
