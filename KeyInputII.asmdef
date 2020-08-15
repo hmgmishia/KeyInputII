@@ -1,8 +1,6 @@
 {
     "name": "KeyInputII",
-    "references": [
-        "GUID:7b9a9d1d5178d43e6ad7e8d402a82fd0"
-    ],
+    "references": [],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,

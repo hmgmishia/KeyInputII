@@ -1,6 +1,8 @@
 {
     "name": "KeyInputII.Editor",
-    "references": [],
+    "references": [
+        "GUID:7674eca230b1c413a8ffd10283255e46"
+    ],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,

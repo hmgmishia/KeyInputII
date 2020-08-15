@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using KeyInputII.Pairs;
 using UnityEngine;
 
 namespace KeyInputII
@@ -8,21 +9,21 @@ namespace KeyInputII
     /// <summary>
     /// キーコンフィグの実行時に使用するクラス
     /// </summary>
-    public class KeyConfigRuntimeCore
+    public class KeyInput
     {
         /// <summary>
         /// キー名と対応キーコードのペア辞書
         /// </summary>
         private Dictionary<string, List<KeyCode>> keyConfigDictionary = new Dictionary<string, List<KeyCode>>();
         
-        private static KeyConfigRuntimeCore instance;
-        public static KeyConfigRuntimeCore Instance
+        private static KeyInput instance;
+        public static KeyInput I
         {
             get
             {
                 if (instance == null)
                 {
-                    instance = new KeyConfigRuntimeCore();
+                    instance = new KeyInput();
                 }
                 return instance;
             }
@@ -30,22 +31,24 @@ namespace KeyInputII
 
         /// <summary>
         /// デフォルトパスに保存されている定義データを読み込む
+        /// <returns>定義データがあればtrue</returns>
         /// </summary>
-        public void DefaultLoad()
+        public bool SetDefaultDefine()
         {
             var defaultData = Resources.Load<KeyConfigDefineData>(KeyConfigDefineData.DefaultLoadPath);
             if (defaultData == null)
             {
-                return;
+                return false;
             }
             keyConfigDictionary = defaultData.CreateDictionary();
+            return true;
         }
 
         /// <summary>
         /// 定義データのキーコンフィグを読み込む
         /// </summary>
         /// <param name="data"></param>
-        public void Load(KeyConfigDefineData data)
+        public void SetDefine(KeyConfigDefineData data)
         {
             if (data == null)
             {
@@ -54,7 +57,7 @@ namespace KeyInputII
             keyConfigDictionary = data.CreateDictionary();
         }
         
-        public string[] GetKeyList()
+        public string[] GetKeyNameList()
         {
             return keyConfigDictionary.Keys.ToArray();
         }
@@ -88,7 +91,11 @@ namespace KeyInputII
             keyConfigDictionary[name] = keyCodeList;
         }
 
-        public void SetKeyList(KeyConfigSaveData configSaveData)
+        /// <summary>
+        /// 設定されたキーコンフィグを割り当て
+        /// </summary>
+        /// <param name="configSaveData"></param>
+        public void SetKeyConfigData(KeyConfigSaveData configSaveData)
         {
             if (configSaveData == null)
             {
@@ -103,6 +110,20 @@ namespace KeyInputII
                 }
                 keyConfigDictionary[pair.name] = pair.codeList;
             }
+        }
+
+        /// <summary>
+        /// 設定されたキーコンフィグデータを取得
+        /// </summary>
+        /// <returns></returns>
+        public KeyConfigSaveData GetKeyConfigData()
+        {
+            var saveData = new KeyConfigSaveData();
+            foreach (var pair in keyConfigDictionary)
+            {
+                saveData.KeyConfigList.Add(new KeyConfigPair(){name = pair.Key, codeList = pair.Value});
+            }
+            return saveData;
         }
         
 

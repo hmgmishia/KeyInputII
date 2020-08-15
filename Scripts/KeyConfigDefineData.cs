@@ -9,6 +9,7 @@ namespace KeyInputII
 {
     /// <summary>
     /// キーコンフィグの定義アセット
+    /// 対応する識別名と初期のキーを設定する
     /// </summary>
     public class KeyConfigDefineData : ScriptableObject
     {
@@ -25,6 +26,18 @@ namespace KeyInputII
             AssetDatabase.SaveAssets();
         }
 #endif
+
+        public string[] GetKeyNameList()
+        {
+            string[] nameList = new string[keyConfigList.Count];
+            var index = 0;
+            foreach (var pair in keyConfigList)
+            {
+                nameList[index] = pair.name;
+                index += 1;
+            }
+            return nameList;
+        }
 
         public Dictionary<string, List<KeyCode>> CreateDictionary()
         {

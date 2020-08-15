@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: DefaultKeyConfig
   m_EditorClassIdentifier: 
   keyConfigList:
-  - name: Shoot
-    codeList: 43010000
-  - name: Jump
-    codeList: 20000000
+  - name: Touch
+    codeList: 66000000
+  - name: Inventory
+    codeList: 69000000
