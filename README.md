@@ -1,7 +1,7 @@
 # KeyInputII 
 Unityにてキーコンフィグできるキー入力
 
-※Assets/Plugins下に置いてください
+※Assets/Plugins下にKeyInputIIの名前でCloneして置いてください
 
 
 ## キーコンフィグの定義データ KeyConfigDefineData.cs
